@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto|Courgette|Pacifico:400,700" rel="stylesheet">
+<title>Bootstrap Start Free Trail Sign up Form</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+<link href="bidderstyle.css" type="text/css" rel="stylesheet">
+
+<script>
+$(function(){
+
+	$("#bidderForm").submit(function(evt){
+		evt.preventDefault();
+		var obj={
+				username:$("#username").val(),
+				contactno:$("#contactno").val(),
+				email:$("#email").val(),
+				addressline:$("#addressline").val(),
+				city:$("#city").val(),
+				state:$("#state").val(),
+				pincode:$("#pincode").val(),
+				accountno:$("#accountno").val(),
+				ifsccode:$("#ifsccode").val(),
+				btnaadhar:$("#btnaadhar").val(),
+				btnpan:$("#btnpan").val(),
+				btntrade:$("#btntrade").val(),
+				password:$("#password").val(),
+				confirm_password:$("#confirm_password").val()
+				
+			/* 	 file_data = $('#btnaadhar').prop('files')[0];   
+                 form_data = new FormData();                  
+                form_data.append('btnaadhar', file_data); */
+		}
+		
+		$.ajax({
+			
+			url:'/Register',
+			type:'POST',
+			data:JSON.stringify(obj),
+			contentType:'application/json',
+			dataType:'application/json',
+			success:function(response){
+				alert(JSON.stringify(response));
+			}
+		})
+	})
+})
+
+</script>
+
+
+</head>
+<body>
+<div class="signup-form">
+    <form id="bidderForm">
+		<div class="form-header">
+			<h2>Sign Up</h2>
+			<p>Fill out this form to get started!</p>
+        </div>
+        <div class="form-headings">
+        <p>Personal Details</p>
+    </div>
+        <div class="form-group">
+			<label>Username</label>
+        	<input  class="form-control" id="username" required="required">
+        </div>
+        <div class="form-group">
+			<label>ContactNo</label>
+        	<input  class="form-control" id="contactno" required="required">
+        </div>
+        <div class="form-group">
+			<label>Email Address</label>
+        	<input  class="form-control" id="email" required="required">
+        </div>
+
+        <div class="form-headings">
+            <p>Address Details</p>
+        </div>
+        <div class="form-group">
+			<label>Address Line</label>
+        	<input  class="form-control" id="addressline" required="required">
+        </div>
+    
+        <div class="form-group">
+			<label>City</label>
+        	<input class="form-control" id="city" required="required">
+        </div>
+        <div class="form-group">
+			<label>State</label>
+        	<input  class="form-control" id="state" required="required">
+        </div>
+        <div class="form-group">
+			<label>Pincode</label>
+        	<input  class="form-control" id="pincode" required="required">
+        </div>
+
+        <div class="form-headings">
+            <p>Bank Details</p>
+        </div>
+        <div class="form-group">
+			<label>Account No</label>
+        	<input  class="form-control" id="accountno" required="required">
+        </div>
+        <div class="form-group">
+			<label>IFSC Code</label>
+        	<input  class="form-control" id="ifsccode" required="required">
+        </div>
+
+        <div class="form-headings">
+            <p>Document Upload</p>
+        </div>
+
+        <div class="form-group">
+         <label>Aadhar Card</label>
+              <input class= "form-control" id="btnaadhar">
+             </div>
+         <div class="form-group">
+         <label>PAN Card</label>
+                 <input class= "form-control" id="btnpan">
+                 </div>
+
+                 <div class="form-group">
+                    <label>Traders License</label>
+                            <input class= "form-control" id="btntrade">
+                            </div>
+        <div class="form-headings">
+             <p>Set Password</p>
+             </div>
+        <div class="form-group">
+			<label>Password</label>
+            <input class="form-control" id="password" required="required">
+        </div>
+		<div class="form-group">
+			<label>Confirm Password</label>
+            <input class="form-control" id="confirm_password" required="required">
+        </div>        
+        <div class="form-group">
+			<label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+		</div>
+		<div class="form-group">
+			<button type="submit" class="btn btn-primary btn-block btn-lg">Sign Up</button>
+		</div>	
+    
+	<div class="text-center small">Already have an account? <a href="#">Login here</a></div>
+
+</form>
+</div>
+
+
+</body>
+</html>             
+
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+$(function(){
+	$("#farmForm").submit(function(evt){
+		
+		evt.preventDefault();
+		
+		formdata = new FormData();
+		formdata.append("fname",$("#fname").val());
+		//formdata.append("faadhar", $("#faadhar").prop('files')[0]);
+		
+		var obj={
+				fname:$("#fname").val(),
+				fcontact:$("#fcontact").val,
+				femail:$("#femail").val(),
+				faddress:$("#faddress").val(),
+				fcity:$("#fcity").val(),
+				fstate:$("#fstate").val(),
+				fpin:$("#fpin").val(),
+				/*  farea:$("#farea").val(), 
+				 fareaAddress:$("#fareaAddress").val(),
+				fareaPincode:$("#fareaPincode").val(),  */
+				faccountNo:$("#faccountNo").val(),
+				fifsc:$("#fifsc").val(),
+				faadhar:$("#faadhar").val(),
+				fpan:$("#fpan").val(),
+				fcertificate:$("#fcert").val(),
+				fpassword:$("#fpassword").val()
+				
+		}
+		$.ajax({
+			url         : '/fregister', //url we want to hit
+			method      : 'POST', //GET or POST or any other method of HTTP
+			//data 	    : formdata,
+			data		: JSON.stringify(obj),
+			contentType	: 'application/json',
+			//contentType : 'application/x-www-form-urlencoded',
+			//contentType: 'multipart/form-data',
+			//processData: false,
+			success: function(response){
+				
+				alert(JSON.stringify(response));
+				
+			}
+			
+		})
+		
+	})
+})
+</script>
+
+</head>
+<body>
+<h1>Register here</h1>
+<form id="farmForm">
+Full Name: <input id="fname"><br>
+Contact No: <input id="fcontact"><br>
+Email ID: <input id="femail"><br>
+Address: <input id="faddress"><br>
+City: <input id="fcity"><br>
+State: <input id="fstate"><br>
+Pin Code: <input id="fpin"><br>
+Area: <input id="farea"><br>
+Area address: <input id="fareaAddress"><br>
+Area Pincode: <input id="fareaPincode"><br>
+Account Number: <input id="faccountNo"><br> 
+IFSC Code: <input id="fifsc"><br>
+Aadhar: <input type="file" id="faadhar"/><br/>
+Pan: <input type="file" id="fpan"/><br/>
+Certificate: <input type="file" id="fcert"/><br/>
+Password: <input id="fpassword"><br>
+<button type="submit">Register</button>
+</form>
+</body>
+</html>
+ -->
+
+
+
+
+
