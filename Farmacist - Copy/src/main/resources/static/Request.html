@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+$(function(){
+
+	$("#requestbidder").submit(function(evt){
+		evt.preventDefault();
+		var obj={
+		 cropId: 98,
+		 bidderId: 321
+		}
+			/* 	 file_data = $('#btnaadhar').prop('files')[0];   
+                 form_data = new FormData();                  
+                form_data.append('btnaadhar', file_data); */
+		
+		$.ajax({
+			
+			url:'/BidderRequest',
+			method:'POST',
+			data:JSON.stringify(obj),
+			contentType:'application/json',
+			success: function(response){
+				alert(JSON.stringify(response));
+				//Stringify: toString()
+				//$.each(response,function(index,SetBid){
+					var row=$("<tr/>");
+					var col1=$("<td/>").text(response.id);
+					var col2=$("<td/>").text(response.cropname);
+					var col3=$("<td/>").text(response.croptype);
+					var col4=$("<td/>").text(response.cropvariety);
+					var col5=$("<td/>").text(response.cropquantity);
+					row.append(col1);
+					row.append(col2);
+					row.append(col3);
+					row.append(col4);
+					row.append(col5);
+					$("#tbl").append(row);
+					
+				//})
+				/* var p1 = $("<h3/>").text("CropID: "+response.id);
+				var p2 = $("<h3/>").text("CropName: "+response.cropname);
+				var p3 = $("<h3/>").text("CropType: "+response.croptype);
+				var p4 = $("<h3/>").text("CropVariety: "+response.cropvariety);
+				var p5 = $("<h3/>").text("CropQuantity: "+response.cropquantity);
+				$("#details").html("<h1>Details of Crop: "+"</h1>")
+								.append(p1)
+								.append(p2)
+								.append(p3)
+								.append(p4)
+								.append(p5); */
+				
+			}
+		})
+		
+	})
+})
+</script>
+
+<script>
+$(function(){
+
+	$("#currentBid").submit(function(evt){
+		evt.preventDefault();
+		var obj={
+		 cropId: 98,
+		 bidderId: 321
+		}
+			/* 	 file_data = $('#btnaadhar').prop('files')[0];   
+                 form_data = new FormData();                  
+                form_data.append('btnaadhar', file_data); */
+		
+		$.ajax({
+			
+			//url:'/BidderRequest',
+			url:'/bidview',
+			method:'POST',
+			data:JSON.stringify(obj),
+			contentType:'application/json',
+			success: function(response){
+				alert(JSON.stringify(response));
+				//Stringify: toString()
+				//$.each(response,function(index,SetBid){
+					var row=$("<tr/>");
+					var col1=$("<td/>").text(response.bid);
+					var col2=$("<td/>").text(response.amount);
+					row.append(col1);
+					row.append(col2);
+					$("#table").append(row);
+					
+				//})
+				/* var p1 = $("<h3/>").text("CropID: "+response.id);
+				var p2 = $("<h3/>").text("CropName: "+response.cropname);
+				var p3 = $("<h3/>").text("CropType: "+response.croptype);
+				var p4 = $("<h3/>").text("CropVariety: "+response.cropvariety);
+				var p5 = $("<h3/>").text("CropQuantity: "+response.cropquantity);
+				$("#details").html("<h1>Details of Crop: "+"</h1>")
+								.append(p1)
+								.append(p2)
+								.append(p3)
+								.append(p4)
+								.append(p5); */
+				
+			}
+		})
+		
+	})
+})
+</script>
+
+<script>
+$(function(){
+
+	$("#amount").submit(function(evt){
+		evt.preventDefault();
+		var obj={
+		 cropId: 74,
+		 bidderId: 305,
+		 money:$("#money").val()
+		}
+			/* 	 file_data = $('#btnaadhar').prop('files')[0];   
+                 form_data = new FormData();                  
+                form_data.append('btnaadhar', file_data); */
+		
+                $.ajax({
+        			
+        			url:'/BiddingInsert',
+        			type:'POST',
+        			data:JSON.stringify(obj),
+        			contentType:'application/json',
+        			dataType:'application/json',
+        			success:function(response){
+        				alert(JSON.stringify(response));
+        			}
+		})
+		
+	})
+})
+</script>
+
+
+</head>
+
+<body>
+<form id="requestbidder">
+<button id="farmer" type="submit">Crop 1</button>
+</form><br/><br/><br/>
+<form id="currentBid">
+<button id="farmer" type="submit">Click to see the current bidAmount</button>
+</form><br/><br/><br/>
+
+<form id="amount">
+<div>
+Enter the Amount For Bid: <input id="money" type="number"/><br/><br/>
+<button type="submit" >click</button>
+</div>
+</form><br/><br/><br/>
+
+<table id="tbl" style="border:1px solid black;">
+<tr style="border:2px solid black;">
+<th>CropId</th>
+<th>CropName</th>
+<th>CropType</th>
+<th>CropVariety</th>
+<th>CropQuantity</th>
+</table><br/><br/>
+
+<table id="table" style="border:1px solid black;">
+<tr style="border:2px solid black;">
+<th>BiddingId</th>
+<th>BiddingAmount</th>
+</table>
+
+<!-- <div id="details">
+</div> -->
+
+</body>
+</html>
