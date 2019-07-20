@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"com.lti.projectgladiator.controller","com.lti.projectgladiator.dao","com.lti.projectgladiator.dto","com.lti.projectgladiator.service"})
+@ComponentScan({"com.lti.projectgladiator.controller","com.lti.projectgladiator.dao","com.lti.projectgladiator.dto","com.lti.projectgladiator.service","com.lti.projectgladiator.test"})
 @EntityScan("com.lti.projectgladiator.entity")
 public class FarmacistApplication {
 

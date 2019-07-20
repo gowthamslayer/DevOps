@@ -12,13 +12,78 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link href="main.css" type="text/css" rel="stylesheet">
+
+<script>
+$(function(){
+	$("#bidderLoginForm").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+				username: $("#uusername").val(),
+				password: $("#ppassword").val()
+		}
+		
+		$.ajax({
+			url : '/bidderLogin', 
+			method : 'POST', 
+			data :JSON.stringify(obj),
+			contentType:'application/json',
+			
+			success: function(response){
+				//if(response.adminPassword==adminPassword)
+				if(response!="fail"){
+					//alert("Found!");
+					window.location.replace("Request.html");
+				}
+				else{
+					alert("Invalid Username or Password!");
+				}
+					
+			}
+		})
+		
+	})
+})
+</script>
+
+
+<script>
+$(function(){
+	$("#farmerLoginForm").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+				username: $("#username").val(),
+				password: $("#password").val()
+		}
+		
+		$.ajax({
+			url : '/farmerLogin', 
+			method : 'POST', 
+			data :JSON.stringify(obj),
+			contentType:'application/json',
+			
+			success: function(response){
+				//if(response.adminPassword==adminPassword)
+				if(response!="fail"){
+					//alert("Found!");
+					window.location.replace("farmerdashboard.html");
+				}
+				else{
+					alert("Invalid Username or Password!");
+				}
+					
+			}
+		})
+		
+	})
+})
+</script>
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #02ad88f8;">
     <div class="container-fluid">
         <a href="#" class="navbar-brand mr-3">
-          <img src="logoreal.png" alt="paddy logo">FARMACIST</a>
-        
+            <img src="C:\Users\vshadmin\Desktop\FarmerSchemaUI\logoreal.png" alt="paddy logo">FARMACIST</a>
+        </a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -53,18 +118,18 @@
              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
               </div>
              <div class="modal-body">
-          <form action="/examples/actions/confirmation.php" method="post">
+          <form id="farmerLoginForm">
      <div class="form-group">
-          <input type="text" class="form-control" name="username" placeholder="Username" required="required">		
+          <input type="text" class="form-control" id="username" placeholder="Username" required="required">		
             </div>
        <div class="form-group">
-         <input type="password" class="form-control" name="password" placeholder="Password" required="required">	
+         <input type="password" class="form-control" id="password" placeholder="Password" required="required">	
         </div>        
         <div class="form-group">
        <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>
           </div>
 
-          <div id="farmreg" class="text-center small">Not a Registered User? <a href="C:/Users/vshadmin/Desktop/FarmerSchemaUI/farmerregister.html" style="color:rgb(0, 128, 117)">Register here</a></div>
+          <div id="farmreg" class="text-center small">Not a Registered User? <a href="Register.html">Register here</a></div>
           
           </div>
         </form>
@@ -97,12 +162,12 @@
      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
       </div>
      <div class="modal-body">
-  <form action="/examples/actions/confirmation.php" method="post">
+  <form id="bidderLoginForm">
 <div class="form-group">
-  <input type="text" class="form-control" name="username" placeholder="Username" required="required">		
+  <input type="text" class="form-control" id="uusername" placeholder="Username" required="required">		
     </div>
 <div class="form-group">
- <input type="password" class="form-control" name="password" placeholder="Password" required="required">	
+ <input type="password" class="form-control" id="ppassword" placeholder="Password" required="required">	
 </div>        
 <div class="form-group">
 <button type="submit" class="btn btn-primary btn-lg btn-block login-btn">Login</button>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Farmer Dashboard</title>
+
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="../css/farmerdashboard.css">
+
+    <!-- Font Awesome JS -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- Sidebar Holder -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 style="font-family: Georgia, 'Times New Roman', Times, serif"><b>My Dashboard</b></h3>
+            </div>
+
+            <ul class="list-unstyled components">
+                <p> CROPS </p>
+                <li class="active">
+                    <a href="#cropsstage" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Crops Stage</a>
+                    <ul class="collapse list-unstyled" id="cropsstage">
+                        <li>
+                            <a href="#">Active Crops</a>
+                        </li>
+                        <li>
+                            <a href="#">InActive Crops</a>
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                   
+                    <a href="#mjcrops" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Major Crops</a>
+                    <ul class="collapse list-unstyled" id="mjcrops">
+                        <li>
+                            <a href="#">Kharif</a>
+                        </li>
+                        <li>
+                            <a href="#">Rabi</a>
+                        </li>
+                        <li>
+                            <a href="#">Zaid</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">Policies</a>
+                </li>
+                <li>
+                    <a href="#">FAQ</a>
+                </li>
+                <li>
+                        <a href="#">Reach Us</a>
+                    </li>
+            </ul>
+
+            <ul class="list-unstyled CTAs">
+                <li>
+                    <a href="" class="download">Download Articles</a>
+                </li>
+                <li>
+                    <a href="" class="article">Back to Home</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Page Content Holder -->
+        <div id="content">
+
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+
+                    <button type="button" id="sidebarCollapse" class="navbar-btn" >
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                    
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="nav navbar-nav ml-auto">
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="welcome.html"><b style="font-family:unset">LogOut</b></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+             
+            <div class="line"></div>
+            
+            
+            <div class="container">
+         
+         <div class="sell-heading1">
+            <h3 style="text-align:left" ><b>Place a Sell Request</b></h3>
+        </div>
+        <div class="card1">
+              <img src="../images/pic6.jpg" alt=sellcrops  width=300; height=200><br/>
+              <button style="font-family:cursive">Sell Here</button>
+        </div>
+
+             <div class="sell-heading2">
+                <h3 style="text-align:center"><b>View Sold History</b></h3>
+           
+                <div class="card2">
+                  <img src="../images/history.png" alt=history  width=300; height=200>
+                  
+                 <button style="font-family:cursive">Sold History</button>
+                 </div>
+                </div>
+
+                <div class="sell-heading3">
+                    <h3 style="text-align:right"><b>View Market Place</b></h3>
+               
+                    <div class="card3">
+                      <img src="../images/marketplace.jpg" alt=history  width=300; height=200>
+                      
+                     <button style="font-family:cursive">Market Place</button>
+                     </div>
+                    </div>
+                </div>
+                 
+
+ <!-- jQuery CDN - Slim version (=without AJAX) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#sidebarCollapse').on('click', function () {
+                $('#sidebar').toggleClass('active');
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

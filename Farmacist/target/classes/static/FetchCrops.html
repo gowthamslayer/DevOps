@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Display All Crop</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+$(function(){
+
+	$("#fetchCropsForm").submit(function(evt){
+		evt.preventDefault();
+		var obj={
+				
+				
+				
+			/* 	 file_data = $('#btnaadhar').prop('files')[0];   
+                 form_data = new FormData();                  
+                form_data.append('btnaadhar', file_data); */
+		}
+		
+		$.ajax({
+			
+			url:'/fetchCrops',
+			type:'POST',
+			//data:JSON.stringify(obj),
+			contentType:'application/json',
+			//dataType:'application/json',
+			success:function(response){
+				alert(JSON.stringify(response));
+				$.each(response,function(index,bidder){
+					var row=$("<tr/>");
+					var col1=$("<td/>").text(bidder.cropId);
+					var col2=$("<td/>").text(bidder.baseprice);
+					var col3=$("<td/>").text(bidder.cropName);
+					var col4=$("<td/>").text(bidder.cropType);
+					var col5=$("<td/>").text(bidder.cropFertilizer);
+					var col6=$("<td/>").text(bidder.cropQuantity);
+					var button=$('<button type="submit">select</button>');
+					row.append(col1);
+					row.append(col2);
+					row.append(col3);
+					row.append(col4);
+					row.append(col5);
+					row.append(col6);
+					row.append(button);
+					$("#cropTable").append(row);
+				})
+			}
+		})
+	})
+})
+
+</script>
+</head>
+<body>
+
+<center>
+<form id="fetchCropsForm">
+<button type="submit">Crops Available</label>
+</form>
+</center>
+
+<table id="cropTable" style="border:1px solid black;">
+<tr style="border:1px solid black;">
+<th>CropId</th>
+<th>CropBasePrice</th>
+<th>CropName</th>
+<th>CropType</th>
+<th>CropFertilizer</th>
+<th>CropQuantity</th>
+</table>
+</body>
+</html>

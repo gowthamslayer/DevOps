@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(name="FS_BIDDER_REG")
@@ -20,7 +21,7 @@ public class BidderInfo {
 	private String bname;
 	@Column(name="bi_contactno")
 	private String bcontactno;
-	@Column(name="bi_email")
+	@Column(name="bi_email",unique=true)
 	private String bemail;
 	@Column(name="bi_address")
 	private String baddress;

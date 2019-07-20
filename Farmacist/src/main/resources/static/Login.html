@@ -1,0 +1,48 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Bidder Login</title>
+<script src = "https://code.jquery.com/jquery-3.4.1.js">
+</script>
+<script>
+$(function(){
+	$("#bidderLoginForm").submit(function(evt){
+		evt.preventDefault();
+		var obj = {
+				username: $("#username").val(),
+				password: $("#password").val()
+		}
+		
+		$.ajax({
+			url : '/bidderLogin', 
+			method : 'POST', 
+			data :JSON.stringify(obj),
+			contentType:'application/json',
+			
+			success: function(response){
+				//if(response.adminPassword==adminPassword)
+				if(response!="fail"){
+					//alert("Found!");
+					alert("Login Successful");
+				}
+				else{
+					alert("Invalid Username or Password!");
+				}
+					
+			}
+		})
+		
+	})
+})
+</script>
+</head>
+<body>
+<h1>LOGIN FORM</h1>
+<form id="bidderLoginForm">
+	UserName:<input id="username" required="required"/><br>
+	Password: <input id="password" required="required"/><br>
+	<button type="submit">LOGIN</button>
+</form>
+</body>
+</html>  -->
